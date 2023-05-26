@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
-    name: Build
+    name: Build And Code Analisys
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK 11
@@ -21,7 +21,7 @@ jobs:
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
-          path: ~\sonar\cache
+          path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarCloud scanner
